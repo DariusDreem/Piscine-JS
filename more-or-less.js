@@ -1,9 +1,9 @@
 function more (number) {
-    return number++
+    return ++number
 }
 
 function less (number) {
-    return number--
+    return --number
 }
 
 function add (number1, number2) {
