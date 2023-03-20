@@ -7,6 +7,8 @@ function last (liste) {
 }
 
 function kiss (liste) {
-    liste2 = liste[liste.length-1] + liste[0]
+    const liste2 = []
+    liste2[0] = last(liste)
+    liste2[1] = first(liste)
     return liste2
 }
