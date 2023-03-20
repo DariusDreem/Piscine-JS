@@ -7,6 +7,6 @@ function last (liste) {
 }
 
 function kiss (liste) {
-    liste2 = liste[0] + liste[liste.length-1]
+    liste2 = liste[liste.length-1] + liste[0]
     return liste2
 }
