@@ -3,6 +3,6 @@ return number
 }
 
 function getLength (oui) {
-    lengt = Object.length(oui)
-    return lengt
+    return oui.length
+
 }
