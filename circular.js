@@ -1,3 +1,3 @@
 circular = {
-    circular:cirular
+    circular:'cirular'
 }
