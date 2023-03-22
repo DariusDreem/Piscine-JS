@@ -19,4 +19,4 @@ function capitalize (phrase) {
     return phrase.charAt(0).toUpperCase() + phrase.slice(1).toLowerCase()
 }
 
-console.log(capitalize('Bonsoir Mon cheR'))
+console.log(words('a b c'))
