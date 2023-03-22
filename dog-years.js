@@ -12,5 +12,7 @@ const planets={
 function dogYears(planet,seconds) {
     const earth_year=(((seconds/60)/60)/24)/365.25
     const dog_year = earth_year*7
-    return Number((dog_year*planets[planet]).toFixed(2))
+    return Number((dog_year/planets[planet]).toFixed(2))
 }
+
+console.log(dogYears('mercury',2134835688))
