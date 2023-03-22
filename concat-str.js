@@ -1,4 +1,5 @@
 function concatStr(str1, str2) {
-    return arg1.toString() + arg2.toString();
+    return str1.toString() + str2.toString();
 }
 
+console.log(concatStr(1,2))
