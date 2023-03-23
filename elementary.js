@@ -1,34 +1,31 @@
-function multiply (a,b) {
-    let result = 0
-    let negative = false
-    if (b < 0){
-        b = Math.abs(b)
-        negative = true
+function multiply(a, b) {
+    let result = 0;
+    if (Math.abs(b) > Math.abs(a)) {
+        [a, b] = [b, a];
     }
-    for (let i = 0; i < b; i++) {
-        result += a
+    for (let i = 0; i < Math.abs(b); i++) {
+        result += Math.abs(a);
     }
-    if (negative === true) {
-        result= result - result - result
-    }
-    return result
+    return Math.sign(a) === Math.sign(b) ? result : -result;
 }
 
-function divide (a,b) {
-    let i = 0
-    let result = 0
-    if (b === 0) {
-        return 0
+
+function divide(dividend, divisor) {
+    let quotient = 0;
+    if (divisor === 0) {
+        return 0;
     }
-    while (result === 0) {
-        i++
-        if (multiply(b,i) > a){
-            return i-1
+    while (true) {
+        quotient++;
+        if (multiply(divisor, quotient) > dividend) {
+            return quotient - 1;
         }
     }
 }
 
-function modulo (a,b) {
-    let i = divide(a,b)
-return a-(multiply(i,b))
+
+function modulo(a, b) {
+    let i = divide(a, b);
+    return a - (multiply(i, b));
 }
+console.log(divide(18,5))
