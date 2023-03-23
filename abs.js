@@ -3,7 +3,7 @@ function isPositive (number) {
 }
 
 function abs (number) {
-    if (isPositive(number) == false) {
+    if (number !== 0 && isPositive(number) === false) {
         return number*-1
     }
     else
