@@ -19,5 +19,7 @@ function divide (a,b) {
 
 function modulo (a,b) {
     let i = divide(a,b)
-return a-(i*b)
+return a-(multiply(i,b))
 }
+
+console.log(modulo(23,5))
