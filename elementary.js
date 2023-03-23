@@ -29,4 +29,3 @@ function modulo (a,b) {
     let i = divide(a,b)
 return a-(multiply(i,b))
 }
-console.log(multiply(123,-22))
