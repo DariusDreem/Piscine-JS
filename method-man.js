@@ -3,7 +3,7 @@ function words (phrase) {
 }
 
 function sentence(words) {
-    return words.split(" ").join(" ");
+    return words.join(" ");
 }
 
 function yell (phrase) {
