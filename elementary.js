@@ -17,6 +17,9 @@ function multiply (a,b) {
 function divide (a,b) {
     let i = 0
     let result = 0
+    if (b === 0) {
+        return 0
+    }
     while (result === 0) {
         i++
         if (multiply(b,i) > a){
