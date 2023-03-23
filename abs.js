@@ -3,5 +3,11 @@ function isPositive (number) {
 }
 
 function abs (number) {
-    return Math.abs(number)
+    if (isPositive(number) == false) {
+        return number*-1
+    }
+    else
+    {
+        return number
+    }
 }
