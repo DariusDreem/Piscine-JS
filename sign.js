@@ -12,11 +12,5 @@ function sign (number) {
 }
 
 function sameSign (frst,scd) {
-    if (sign(frst) === sign(scd)) {
-        return true
-    }
-    else
-    {
-        return false
-    }
+    return sign(frst) === sign(scd);
 }
