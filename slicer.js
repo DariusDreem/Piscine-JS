@@ -12,11 +12,12 @@ function slice(list, start, end = list.length) {
     if (end < 0) {
         end = list.length - Math.abs(end)
     }
-
     for (let i = start; i < end; i++) {
-        container += list[i];
+
+        container[place] = list[i];
+        place++
     }
     return container;
 }
 
-console.log( slice('abcdef', 0, -2));
+console.log(slice([1, 2, 3, 4, 5, 6], 2));
