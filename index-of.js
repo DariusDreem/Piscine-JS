@@ -7,14 +7,24 @@ function indexOf(arr,list,start=0) {
     return -1
 }
 
-function lastIndexOf(arr,list,start=0) {
-    let tempo = -1
-    for (let i = start; i < arr.length; i++) {
-        if (arr[i] === list) {
-            tempo = i
+function lastIndexOf(arr, nb) {
+    if(arr[0] === nb) {
+        return 0;
+    }
+
+    let index = 0;
+
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] === nb) {
+            index = i;
         }
     }
-    return tempo
+
+    if(index > 0) {
+        return index;
+    }
+
+    return -1
 }
 
 
@@ -26,3 +36,6 @@ function include(arr,list,start=0) {
     }
     return false;
 }
+
+const t = 9
+console.log(lastIndexOf([t, 0, 0, t], t, 2))
