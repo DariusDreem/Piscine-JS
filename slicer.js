@@ -1,5 +1,6 @@
 function slice(list, start, end = list.length) {
     let container;
+    let place = 0;
     if (typeof list === "string") {
         container = "";
     } else {
