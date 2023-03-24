@@ -1,32 +1,69 @@
-// multiply function
-function multiply(a, b) {
+function multiply(a,b) {
+    let result = 0
+    let neg = false
+    if (a < 0) {
+        a = Math.abs(a)
+        neg =true
+    }
+    if (b < 0) {
+        b = Math.abs(b)
+        neg = (neg)?neg = false:neg=true;
+    }
+    for (let i = 0; i < b; i++) {
+        result += a
+    }
+    if (neg) {
+        let resultstr = "-" + result
+        result = Number(resultstr)
+    }
+    return result;
+}
+function divide(a,b) {
     let result = 0;
-    for (let i = 0; i < Math.abs(b); i++) {
-        result += Math.abs(a);
+    let neg = false;
+    if (a < 0) {
+        a = Math.abs(a)
+        neg =true
     }
-    return Math.sign(a) === Math.sign(b) ? result : -result;
+    if (b < 0) {
+        b = Math.abs(b)
+        neg = (neg)?neg = false:neg=true;
+    }
+    for (let i = b; i <= a; result++) {
+        i += b;
+    }
+    if (neg) {
+        let resultstr = "-" + result
+        result = Number(resultstr)
+    }
+    return result
+}
+function modulo(a,b) {
+    let i = 0;
+    let result = a;
+    let neg = false;
+    if (a < 0) {
+        a = Math.abs(a)
+        result = a;
+        console.log(a)
+        neg =true
+    }
+
+    if (b < 0) {
+        b = Math.abs(b)
+    }
+    for (i = 0; a >= 0 ; a-=b,i++) {
+        console.log(a)
+    }
+    i--;
+    result = result - multiply(b,i)
+    if (neg) {
+        let resultstr = "-" + result
+        console.log(resultstr)
+        result = Number(resultstr)
+    }
+    return result
 }
 
-// divide function
-function divide(dividend, divisor) {
-    let quotient = 0;
-    if (divisor === 0) {
-        return NaN;
-    }
-    while (Math.abs(dividend) >= Math.abs(divisor)) {
-        dividend = dividend - Math.abs(divisor);
-        quotient++;
-    }
-    return Math.sign(quotient) === Math.sign(divisor) ? quotient : -quotient;
-}
-
-// modulo function
-function modulo(dividend, divisor) {
-    if (divisor === 0) {
-        return NaN;
-    }
-    while (Math.abs(dividend) >= Math.abs(divisor)) {
-        dividend = dividend - Math.abs(divisor);
-    }
-    return Math.sign(dividend) === Math.sign(divisor) ? dividend : -dividend;
-}
+console.log(modulo(-123, 22));
+// console.log(123%22);
