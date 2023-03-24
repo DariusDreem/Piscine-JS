@@ -1,19 +1,14 @@
-function indexOf(arr,list,start) {
-    if (start === undefined) {
-        start = 0
-    }
+function indexOf(arr,list,start=0) {
     for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             return i;
         }
     }
+    return -1
 }
 
-function lastIndexOf(arr,list,start) {
+function lastIndexOf(arr,list,start=0) {
     let tempo = -1;
-    if (start === undefined) {
-        start = 0
-    }
     for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             tempo = i;
@@ -22,10 +17,7 @@ function lastIndexOf(arr,list,start) {
     return tempo;
 }
 
-function include(arr,list,start) {
-    if (start === undefined) {
-        start = 0
-    }
+function include(arr,list,start=0) {
     for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             return true;
