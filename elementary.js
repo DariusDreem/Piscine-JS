@@ -17,7 +17,7 @@ function divide(dividend, divisor) {
     }
     while (true) {
         quotient++;
-        if (multiply(divisor, quotient) > dividend) {
+        if (multiply(divisor, quotient) > dividend || quotient > 1000) {
             return quotient - 1;
         }
     }
