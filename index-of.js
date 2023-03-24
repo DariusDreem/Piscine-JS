@@ -28,7 +28,7 @@ function lastIndexOf(arr, nb) {
 }
 
 
-function include(arr,list,start=0) {
+function includes(arr,list,start=0) {
     for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             return true;
@@ -36,4 +36,3 @@ function include(arr,list,start=0) {
     }
     return false;
 }
-
