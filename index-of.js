@@ -1,5 +1,5 @@
 function indexOf(arr,list,start=0) {
-    for (let i = start; i < arr.length-1; i++) {
+    for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             return i;
         }
@@ -9,7 +9,7 @@ function indexOf(arr,list,start=0) {
 
 function lastIndexOf(arr,list,start=0) {
     let tempo = -1
-    for (let i = start; i < arr.length-1; i++) {
+    for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             tempo = i
         }
@@ -19,7 +19,7 @@ function lastIndexOf(arr,list,start=0) {
 
 
 function include(arr,list,start=0) {
-    for (let i = start; i < arr.length-1; i++) {
+    for (let i = start; i < arr.length; i++) {
         if (arr[i] === list) {
             return true;
         }
