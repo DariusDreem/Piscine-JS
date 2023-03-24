@@ -1,5 +1,13 @@
 function slice(list, start, end = list.length) {
-    let container = undefined
+    let container;
+    if(typeof list === "string")
+    {
+        container = ""
+    }
+    else
+    {
+        container = []
+    }
     if (start < 0) {
         Math.abs(start)
         for (let i = end - start; i < end; i++) {
@@ -13,3 +21,5 @@ function slice(list, start, end = list.length) {
         return container
     }
 }
+
+console.log(slice('abcdef', 2))
