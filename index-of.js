@@ -9,7 +9,7 @@ function indexOf(arr,list,start=0) {
 
 function lastIndexOf(arr,list,start=0) {
     let tempo = -1;
-    for (let i = start; i < arr.length; i++) {
+    for (let i = arr.length; i < start ; i--) {
         if (arr[i] === list) {
             tempo = i;
         }
