@@ -1,25 +1,31 @@
-function indexOf (liste,arr,start) {
-    for (let i = start; i < laphrase.length-1; i++) {
-        if (liste === arr[i]){
-            return i
+function indexOf(list, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (list === arr[i]) {
+            return i;
         }
     }
 }
 
-function lastIndexOf  (liste,arr,start) {
-    for (let i = start; i < laphrase.length-1; i++) {
-        if (liste === arr[i]){
-            let tempo = i
+function lastIndexOf(list, arr) {
+    let tempo = -1;
+    for (let i = 0; i < arr.length; i++) {
+        if (list === arr[i]) {
+            tempo = i;
         }
     }
-    return tempo
+    return tempo;
 }
 
-function include (liste,arr,start) {
-    for (let i = start; i < laphrase.length-1; i++) {
-        if (liste === arr[i]){
-            return true
+function include(list, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (list === arr[i]) {
+            return true;
         }
     }
-    return false
+    return false;
 }
+
+/*console.log(indexOf(2, [1, 2, 3, 4, 5, 4, 3, 2, 1]));
+console.log(lastIndexOf(2, [1, 2, 3, 4, 5, 4, 3, 2, 1]));
+console.log(include(2, [1, 2, 3, 4, 5, 4, 3, 2, 1]));
+*/
