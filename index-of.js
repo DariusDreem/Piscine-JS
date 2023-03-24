@@ -8,13 +8,14 @@ function indexOf(arr,list,start=0) {
 }
 
 function lastIndexOf(arr,list,start=0) {
-    let tempo = -1;
+    let tempo = 0;
     for (let i = arr.length; i < start ; i--) {
+        tempo++
         if (arr[i] === list) {
-            tempo = i;
+            return tempo;
         }
     }
-    return tempo;
+    return -1;
 }
 
 function include(arr,list,start=0) {
