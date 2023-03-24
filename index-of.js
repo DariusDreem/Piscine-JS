@@ -25,5 +25,3 @@ function include(arr,list,start=0) {
     }
     return false;
 }
-const t = 45
-console.log(lastIndexOf([t, 0, 0, t], t, 2))
