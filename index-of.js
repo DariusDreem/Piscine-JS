@@ -24,5 +24,3 @@ function include(arr,list,start=0) {
     }
     return false;
 }
-const t = 9
-console.log(lastIndexOf([0, 0, t, t], t, 3))
