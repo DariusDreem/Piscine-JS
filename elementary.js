@@ -1,13 +1,13 @@
-function multiply(a,b) {
+function multiply(a, b) {
     let result = 0
     let neg = false
     if (a < 0) {
         a = Math.abs(a)
-        neg =true
+        neg = true
     }
     if (b < 0) {
         b = Math.abs(b)
-        neg = (neg)?neg = false:neg=true;
+        neg = (neg) ? neg = false : neg = true;
     }
     for (let i = 0; i < b; i++) {
         result += a
@@ -18,16 +18,17 @@ function multiply(a,b) {
     }
     return result;
 }
-function divide(a,b) {
+
+function divide(a, b) {
     let result = 0;
     let neg = false;
     if (a < 0) {
         a = Math.abs(a)
-        neg =true
+        neg = true
     }
     if (b < 0) {
         b = Math.abs(b)
-        neg = (neg)?neg = false:neg=true;
+        neg = (neg) ? neg = false : neg = true;
     }
     for (let i = b; i <= a; result++) {
         i += b;
@@ -38,7 +39,8 @@ function divide(a,b) {
     }
     return result
 }
-function modulo(a,b) {
+
+function modulo(a, b) {
     let i = 0;
     let result = a;
     let neg = false;
@@ -46,17 +48,17 @@ function modulo(a,b) {
         a = Math.abs(a)
         result = a;
         console.log(a)
-        neg =true
+        neg = true
     }
 
     if (b < 0) {
         b = Math.abs(b)
     }
-    for (i = 0; a >= 0 ; a-=b,i++) {
+    for (i = 0; a >= 0; a -= b, i++) {
         console.log(a)
     }
     i--;
-    result = result - multiply(b,i)
+    result = result - multiply(b, i)
     if (neg) {
         let resultstr = "-" + result
         console.log(resultstr)
