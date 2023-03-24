@@ -17,7 +17,7 @@ function divide(dividend, divisor) {
     }
     while (true) {
         quotient++;
-        if (multiply(divisor, quotient) > dividend || quotient > 1000) {
+        if (multiply(divisor, quotient) > dividend || quotient > 100000) {
             return quotient - 1;
         }
     }
@@ -28,4 +28,4 @@ function modulo(a, b) {
     let i = divide(a, b);
     return a - (multiply(i, b));
 }
-console.log(divide(18,5))
+console.log(divide(123,-22))
