@@ -8,7 +8,7 @@ function indexOf(arr,list,start=0) {
 }
 
 function lastIndexOf(arr,list,start=0) {
-    for (let i = arr.length-1; i > start ; i--) {
+    for (let i = start; i > 0 ; i--) {
         if (arr[i] === list) {
             return i;
         }
@@ -24,5 +24,5 @@ function include(arr,list,start=0) {
     }
     return false;
 }
-
-console.log(lastIndexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
+const t = 9
+console.log(lastIndexOf([0, 0, t, t], t, 3))
