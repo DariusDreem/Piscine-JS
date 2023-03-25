@@ -40,7 +40,10 @@ function keepFirstLast (string) {
 if (string.length <= 2) {
     return keepFirst(string)
 }
+else if (string.length > 2 && string.length <= 3) {
+    return keepFirst(string) + string[string.length-1]
+}
     return keepFirst(string) + keepLast(string)
 }
 
-console.log( keepFirstLast('af'))
+console.log( keepFirstLast('afd'))
