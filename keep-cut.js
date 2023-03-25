@@ -37,6 +37,10 @@ function keepLast (string) {
 }
 
 function keepFirstLast (string) {
-
+if (string.length < 2) {
+    return keepFirst(string)
+}
     return keepFirst(string) + keepLast(string)
 }
+
+console.log( keepFirstLast('af'))
