@@ -1,12 +1,19 @@
 function split(phrase, motif) {
     let toreturn = [];
+    let element = "";
     for (let i = 0; i < phrase.length; i++) {
-        if (phrase[i] !== motif) {
-            toreturn.push(phrase[i]);
+        if (phrase.substring(i, i + motif.length) === motif) {
+            toreturn.push(element);
+            element = "";
+            i += motif.length - 1;
+        } else {
+            element += phrase[i];
         }
     }
+    toreturn.push(element);
     return toreturn;
 }
+
 
 function join(list) {
     let phrase = "";
@@ -20,4 +27,4 @@ function join(list) {
     return phrase;
 }
 
-console.log(join(split('a b c', ' '))); // Output: "a b c"
+console.log(split('ggg - ddd - b', ' - '));
