@@ -1,5 +1,5 @@
 function letterSpaceNumber(string) {
-    const pattern = /[a-z]\s\d(?!\d)/g;
+    const pattern = /[a-zA-Z]\s\d(?![a-zA-Z\d])/g;
     const matches = string.match(pattern);
     return matches || [];
 }
