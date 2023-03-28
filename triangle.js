@@ -1,4 +1,4 @@
-function triange (motif,number) {
+function triangle (motif,number) {
 let ligneperligne = ""
     for (let i = 1; i < number+1; i++) {
         for (let j = 0; j < i; j++) {
@@ -10,5 +10,3 @@ let ligneperligne = ""
     }
     return ligneperligne
 }
-
-console.log(triange("*",6))
