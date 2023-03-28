@@ -13,8 +13,14 @@ function nasa (number) {
         if (divisable === false) {
             toreturn += i
         }
+        if (i === number)
+        {
+            break
+        }
+        else{
         toreturn += " "
         divisable = false
+    }
     }
     return toreturn
 }
