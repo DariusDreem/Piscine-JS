@@ -1,11 +1,11 @@
 function get(src, path) {
     const keys = path.split('.');
-    let value = src;
-
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        value = value[key];
+    let result = src;
+    for (const key of keys) {
+        if (result === undefined) {
+            return undefined;
+        }
+        result = result[key];
     }
-
-    return value;
+    return result;
 }
