@@ -1,6 +1,8 @@
 function letterSpaceNumber(string) {
     const pattern = /[a-z]\s\d(?!\d)/g;
-    return string.match(pattern);
+    const matches = string.match(pattern);
+    return matches ? matches : [];
 }
 
-console.log(letterSpaceNumber('example 1, example 20'));
+
+console.log(letterSpaceNumber('I like 7up.'));
