@@ -1,26 +1,22 @@
 function split(str, separator) {
     const arr = [];
     let startIndex = 0;
-    for (let i = 0; i <= str.length - separator.length; i++) {
-        if (str.substring(i, i + separator.length) === separator) {
-            arr.push(str.substring(startIndex, i));
-            startIndex = i + separator.length;
-            i = startIndex - 1;
-        }
+    let separatorIndex = str.indexOf(separator, startIndex);
+    while (separatorIndex !== -1) {
+        arr.push(str.substring(startIndex, separatorIndex));
+        startIndex = separatorIndex + separator.length;
+        separatorIndex = str.indexOf(separator, startIndex);
     }
     arr.push(str.substring(startIndex));
     return arr;
 }
 
 function join(arr, separator) {
-    let str = '';
-    for (let i = 0; i < arr.length; i++) {
-        if (i > 0) {
-            str += separator;
+    return arr.reduce((acc, curr, i) => {
+        if (i === 0) {
+            return curr;
+        } else {
+            return acc + separator + curr;
         }
-        str += arr[i];
-    }
-    return str;
+    }, '');
 }
-
-console.log(join(['ggg','ddd', 'b'], ' - '));
