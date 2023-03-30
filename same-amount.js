@@ -11,5 +11,3 @@ function sameAmount(str, patern1, patern2) {
     }
     return conteur1 === conteur2;
 }
-
-console.log(sameAmount('hello how are you', /l/, /e/),)
