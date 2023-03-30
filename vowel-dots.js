@@ -1,5 +1,5 @@
+const vowels = /[AEIOUaeiou]/g;
 function vowelDots(str) {
-    let vowels = /[AEIOUaeiou]/g;
     let newStr = '';
     let lastIndex = 0;
     let match;
@@ -10,3 +10,4 @@ function vowelDots(str) {
     newStr += str.slice(lastIndex);
     return newStr;
 }
+
