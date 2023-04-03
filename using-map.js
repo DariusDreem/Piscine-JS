@@ -1,71 +1,82 @@
 function citiesOnly(citylist) {
-    let listcity = []
-    citylist.forEach((objet) => {
-        if (objet.city) {
-            listcity.push(objet.city.trim())
-        }
-    })
-    return listcity
+    return citylist
+        .map(obj => obj.city)
+        .filter(city => city !== undefined)
+        .map(city => city.trim());
 }
+console.log(citiesOnly([
+    {
+        city: 'Los Angeles',
+        temperature: '  101 °F   ',
+    },
+    {
+        city: 'San Francisco',
+        temperature: ' 84 ° F   ',
+    },
+])) // -> ['Los Angeles', 'San Francisco'])
 
 function upperCasingStates(citylist) {
-    let citylistsecond = []
-    for (let i = 0; i < citylist.length; i++) {
-        citylistsecond[i] = ""
-        for (let j = 0; j < citylist[i].length; j++) {
-            if (citylist[i][j] === " " && j + 1 < citylist[i].length) {
-                citylistsecond[i] += citylist[i][j] + citylist[i][j + 1].toUpperCase()
-                j++
+    return citylist.map(city => {
+        let formattedCity = "";
+        for (let i = 0; i < city.length; i++) {
+            if (city[i] === " " && i + 1 < city.length) {
+                formattedCity += city[i] + city[i + 1].toUpperCase();
+                i++;
             } else {
-                citylistsecond[i] += citylist[i][j]
+                formattedCity += city[i];
             }
         }
-        citylistsecond[i] = citylistsecond[i][0].toUpperCase() + citylistsecond[i].slice(1)
-    }
-    return citylistsecond
-}
-
-function fahrenheitToCelsuis(listdetempricaines) {
-    let toreturn = []
-    let num = 0
-    const regex = /\d+/g;
-    for (let i = 0; i < listdetempricaines.length; i++) {
-        if (listdetempricaines[i].match(regex)) {
-            num = parseInt(listdetempricaines[i]);
-            num = Math.floor((num - 32) * 5 / 9)
-            toreturn.push(num.toString() + "°C")
-        }
-    }
-    return toreturn
-}
-
-
-function trimTemp(listmap) {
-    return listmap.map(obj => {
-        return {
-            ...obj,
-            temperature: obj.temperature.replace(/\s+/g, '')
-        };
+        return formattedCity.charAt(0).toUpperCase() + formattedCity.slice(1);
     });
 }
 
-console.log(trimTemp(trimTemp([
+
+console.log(upperCasingStates(['alabama', 'new jersey']) // -> ['Alabama', 'New Jersey']
+)
+
+
+function fahrenheitToCelsuis(listdetempricaines) {
+    const regex = /\d+/g;
+    return listdetempricaines
+        .filter(temp => temp.match(regex))
+        .map(temp => {
+            const num = parseInt(temp);
+            const celsius = Math.floor((num - 32) * 5 / 9);
+            return `${celsius}°C`;
+        });
+}
+
+console.log(fahrenheitToCelsuis(['68°F', '59°F', '25°F']) // -> ['20°C', '15°C', '-4°C']
+)
+
+function trimTemp(listmap) {
+    return listmap.map(obj => ({
+        ...obj,
+        temperature: obj.temperature.replace(/\s+/g, '')
+    }));
+}
+console.log(trimTemp([
     { city: 'Los Angeles', temperature: '  101 °F   ' },
     { city: 'San Francisco', temperature: ' 84 ° F   ' },
 ]) /* -> [
   { city: 'Los Angeles', temperature: '101°F' },
   { city: 'San Francisco', temperature: '84°F' },
-] */))
-
-
+] */)
 
 function tempForecasts(cityList) {
-    const forecasts = [];
-    cityList.forEach(city => {
+    return cityList.map(city => {
         const temperature = city.temperature.replace(/\s+/g, '');
         const celsius = Math.floor((parseInt(temperature) - 32) * 5 / 9);
         const formatted = `${celsius}°Celsius in ${city.city}, ${upperCasingStates([city.state])[0]}`;
-        forecasts.push(formatted);
+        return formatted;
     });
-    return forecasts;
 }
+
+console.log(tempForecasts([
+    {
+        city: 'Pasadena',
+        temperature: ' 101 °F',
+        state: 'california',
+        region: 'West',
+    },
+])) // -> ['38°Celsius in Pasadena, California'])
