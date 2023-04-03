@@ -36,13 +36,14 @@ console.log(upperCasingStates(['alabama', 'new jersey'])); // -> ['Alabama', 'Ne
 
 function fahrenheitToCelsius(listdetempricaines) {
     const regex = /\d+/g;
-    return listdetempricaines
-        .filter(temp => temp.match(regex))
-        .map(temp => {
-            const num = parseInt(temp);
-            const celsius = Math.floor((num - 32) * 5 / 9);
-            return `${celsius}°C`;
-        });
+    return listdetempricaines.map(temp => {
+        const num = parseInt(temp.match(regex));
+        if (isNaN(num)) {
+            return null;
+        }
+        const celsius = Math.floor((num - 32) * 5 / 9);
+        return `${celsius}°C`;
+    })
 }
 
 console.log(fahrenheitToCelsius(['68°F', '59°F', '25°F'])); // -> ['20°C', '15°C', '-4°C']
