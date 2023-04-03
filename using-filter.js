@@ -4,9 +4,8 @@ function filterShortStateName(arr) {
 }
 
 
-function filterStartVowel (string)  {
-    const result = string.filter(word => ['a', 'e', 'i', 'o', 'u'].includes(word[0]));
-    return result.length >0
+function filterStartVowel(arr) {
+    return arr.filter(word => ['a', 'e', 'i', 'o', 'u'].includes(word[0].toLowerCase()));
 }
 
 
