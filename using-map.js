@@ -13,7 +13,7 @@ console.log(citiesOnly([
         city: 'San Francisco',
         temperature: ' 84 ° F   ',
     },
-])) // -> ['Los Angeles', 'San Francisco'])
+])); // -> ['Los Angeles', 'San Francisco']
 
 function upperCasingStates(citylist) {
     return citylist.map(city => {
@@ -31,8 +31,7 @@ function upperCasingStates(citylist) {
 }
 
 
-console.log(upperCasingStates(['alabama', 'new jersey']) // -> ['Alabama', 'New Jersey']
-)
+console.log(upperCasingStates(['alabama', 'new jersey'])); // -> ['Alabama', 'New Jersey']
 
 
 function fahrenheitToCelsius(listdetempricaines) {
@@ -46,8 +45,8 @@ function fahrenheitToCelsius(listdetempricaines) {
         });
 }
 
-console.log(fahrenheitToCelsius(['68°F', '59°F', '25°F']) // -> ['20°C', '15°C', '-4°C']
-)
+console.log(fahrenheitToCelsius(['68°F', '59°F', '25°F'])); // -> ['20°C', '15°C', '-4°C']
+
 
 function trimTemp(listmap) {
     return listmap.map(obj => ({
@@ -55,13 +54,15 @@ function trimTemp(listmap) {
         temperature: obj.temperature.replace(/\s+/g, '')
     }));
 }
+
 console.log(trimTemp([
     { city: 'Los Angeles', temperature: '  101 °F   ' },
     { city: 'San Francisco', temperature: ' 84 ° F   ' },
 ]) /* -> [
   { city: 'Los Angeles', temperature: '101°F' },
   { city: 'San Francisco', temperature: '84°F' },
-] */)
+] */);
+
 
 function tempForecasts(cityList) {
     return cityList.map(city => {
@@ -79,4 +80,4 @@ console.log(tempForecasts([
         state: 'california',
         region: 'West',
     },
-])) // -> ['38°Celsius in Pasadena, California'])
+])); // -> ['38°Celsius in Pasadena, California']
