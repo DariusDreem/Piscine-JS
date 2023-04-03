@@ -1,7 +1,8 @@
-function filterShortStateName (string) {
-let result = string.filter(word => word.length > 7)
-    return result.length >0
+function filterShortStateName(arr) {
+    let result = arr.filter(word => word.length < 7);
+    return result;
 }
+
 
 function filterStartVowel (string)  {
     const result = string.filter(word => ['a', 'e', 'i', 'o', 'u'].includes(word[0]));
