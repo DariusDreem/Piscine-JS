@@ -1,7 +1,6 @@
 function adder(arr,onsejame=0) {
     return arr.reduce((accumulator, currentValue) => accumulator + currentValue, onsejame);
 }
-console.log(adder([9, 24, 7, 11, 3], 10), 64)
 
 function sumOrMul(arr,onsejame=0) {
     return arr.reduce((accumulator, currentValue) => {
@@ -13,6 +12,13 @@ function sumOrMul(arr,onsejame=0) {
     }, onsejame);
 }
 
-function funcExec(functions) {
-    return functions.reduce((result, func) => func(result), null);
+function funcExec(functions, initialValue) {
+    return functions.reduce((result, func) => func(result), initialValue);
 }
+const fArr1 = [
+    (x) => x + 2,
+    (x) => x ** 2,
+    (x) => x - 7,
+    (x) => `result: [${x}]`,
+]
+console.log(funcExec(fArr1, 10), `result: [137]`)
