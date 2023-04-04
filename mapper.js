@@ -7,7 +7,7 @@ function map(arr, callback) {
 }
 
 function flatMap(arr, callback) {
-    return arr.reduce((acc, currentVal, index, array) => {
-        return acc.concat(callback(currentVal, index, array));
-    }, []).flat();
+    return arr.reduce((acc, val) => {
+        return acc.concat(callback(val));
+    }, []);
 }
