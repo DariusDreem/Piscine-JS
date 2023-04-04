@@ -1,15 +1,22 @@
-function map(arr, callback) {
+// Map function
+function map(array, callback) {
     const result = [];
-    for (let i = 0; i < arr.length; i++) {
-        result.push(callback(arr[i], i, arr));
+    for (let i = 0; i < array.length; i++) {
+        result.push(callback(array[i], i, array));
     }
     return result;
 }
 
-function flatMap(arr, fn) {
-    return arr.reduce((acc, val, index) => {
-        return acc.concat(fn(val).map(item => `${index}: ${item === undefined ? "undefined" : item}`));
-    }, []);
+// FlatMap function
+function flatMap(array, callback) {
+    const result = [];
+    for (let i = 0; i < array.length; i++) {
+        const mapped = callback(array[i], i, array);
+        if (Array.isArray(mapped)) {
+            result.push(...mapped);
+        } else {
+            result.push(mapped);
+        }
+    }
+    return result;
 }
-
-
