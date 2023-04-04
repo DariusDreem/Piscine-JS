@@ -1,27 +1,11 @@
-function longWords (arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].length < 5 && typeof arr[i] === "string") {
-            return false
-        }
-    }
-    return true
+function longWords(arr) {
+    return arr.every((str) => typeof str === 'string' && str.length >= 5);
 }
 
-function oneLongWord (arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].length >= 10 && typeof arr[i] === "string") {
-            return true
-        }
-    }
-    return false
+function oneLongWord(arr) {
+    return arr.some((str) => typeof str === 'string' && str.length >= 10);
 }
 
-function noLongWords (arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].length >= 7 && typeof arr[i] === "string") {
-            return false
-        }
-    }
-    return true
-
+function noLongWords(arr) {
+    return arr.every((str) => typeof str !== 'string' || str.length < 7);
 }
