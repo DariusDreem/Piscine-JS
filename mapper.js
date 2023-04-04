@@ -10,9 +10,10 @@ function flatMap(arr, callback) {
     return arr.reduce((acc, val, index) => {
         const result = callback(val);
         if (result !== undefined) {
-            return acc.concat(`${index}: ${result}`);
+            return acc.concat(result);
         }
         return acc;
     }, []);
 }
+
 
