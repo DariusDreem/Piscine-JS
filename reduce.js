@@ -1,13 +1,13 @@
 function fold (arr,func,accumulator) {
     for (let i = 0; i < arr.length; i++) {
-        accumulator = func(arr[i],accumulator)
+        accumulator = func(accumulator,arr[i])
     }
     return accumulator
 }
 
 function foldRight (arr,func,accumulator) {
     for (let i = arr.length-1; i >= 0; i--) {
-        accumulator = func(arr[i],accumulator)
+        accumulator = func(accumulator,arr[i])
     }
     return accumulator
 }
