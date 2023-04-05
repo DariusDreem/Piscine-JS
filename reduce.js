@@ -12,15 +12,20 @@ function foldRight (arr,func,accumulator) {
     return accumulator
 }
 
-function reduce (arr,func,accumulator=0) {
+function reduce (arr,func,accumulator) {
     if ( arr.length <= 0) {
         throw new TypeError("Erreur : arr.length <= 0")
+    }
+    if ( accumulator === undefined ) {
+        accumulator = arr[0];
+        arr = arr.slice(1);
     }
     for (let i = 0; i < arr.length; i++) {
         accumulator = func(arr[i],accumulator)
     }
     return accumulator
 }
+
 
 function reduceRight (arr,func,accumulator=0) {
     if ( arr.length <= 0) {
