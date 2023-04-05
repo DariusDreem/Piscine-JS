@@ -1,40 +1,37 @@
-function fold (arr,func,accumulator) {
-    for (let i = 0; i < arr.length; i++) {
-        accumulator = func(accumulator,arr[i])
+function fold(array, func, accumulator) {
+    for (let i = 0; i < array.length; i++) {
+        accumulator = func(accumulator, array[i]);
     }
-    return accumulator
+    return accumulator;
 }
 
-function foldRight (arr,func,accumulator) {
-    for (let i = arr.length-1; i >= 0; i--) {
-        accumulator = func(accumulator,arr[i])
+function foldRight(array, func, accumulator) {
+    for (let i = array.length - 1; i >= 0; i--) {
+        accumulator = func(accumulator, array[i]);
     }
-    return accumulator
+    return accumulator;
 }
 
-function reduce (arr,func,accumulator) {
-    if ( arr.length <= 0) {
-        throw new TypeError("Erreur : arr.length <= 0")
+function reduce(array, func) {
+    if (array.length < 1) {
+        throw new Error("Array must have at least one element");
     }
-    if ( accumulator === undefined ) {
-        accumulator = arr[0];
-        arr = arr.slice(1);
+    let accumulator = array[0];
+    for (let i = 1; i < array.length; i++) {
+        accumulator = func(accumulator, array[i]);
     }
-    for (let i = 0; i < arr.length; i++) {
-        accumulator = func(arr[i],accumulator)
-    }
-    return accumulator
+    return accumulator;
 }
 
-
-function reduceRight (arr,func,accumulator=0) {
-    if ( arr.length <= 0) {
-        throw new TypeError("Erreur : arr.length <= 0")
+function reduceRight(array, func) {
+    if (array.length < 1) {
+        throw new Error("Array must have at least one element");
     }
-    for (let i = arr.length-1; i >= 0; i--) {
-        accumulator = func(arr[i],accumulator)
+    let accumulator = array[array.length - 1];
+    for (let i = array.length - 2; i >= 0; i--) {
+        accumulator = func(accumulator, array[i]);
     }
-    return accumulator
+    return accumulator;
 }
 
 /*
