@@ -1,27 +1,26 @@
-function every (arr,func) {
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i]===true)) {
-            continue
+function every(array, func) {
+    for (let i = 0; i < array.length; i++) {
+        if (!func(array[i])) {
+            return false;
         }
-        return false
     }
-    return true
+    return true;
 }
 
-function some (arr,func) {
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i]===true)) {
-            return true
+function some(array, func) {
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i])) {
+            return true;
         }
     }
-    return false
+    return false;
 }
 
-function none (arr,func) {
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i]===true)) {
-            return false
+function none(array, func) {
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i])) {
+            return false;
         }
     }
-    return true
+    return true;
 }
