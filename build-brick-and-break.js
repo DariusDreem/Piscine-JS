@@ -1,32 +1,45 @@
-function sleep(i, nb) {
-    setTimeout(() => {
-        let brick = document.createElement('div');
-        brick.id = `brick-${i}`
-        if (i % 3 === 2) {
-            brick.setAttribute("foundation", true)
+export const build = (num) => {
+    let count = 0;
+    let base = 1;
+    const body = document.querySelector("body");
+    var timerInt = setInterval(() => {
+        const newBrick = document.createElement("div");
+        newBrick.id = "brick-" + (count + 1);
+        newBrick.innerHTML = count + 1;
+        if (base == count) {
+            newBrick.dataset.foundation = true;
+            base = count + 3;
         }
-        document.body.appendChild(brick)
-        if (i != nb) sleep(i + 1, nb)
+        body.append(newBrick);
 
-    }, 100)
-}
+        count++;
+        if (count == num) {
+            clearInterval(timerInt);
+        }
+    }, 100);
+};
 
-export function build(nbBricks) {
-    sleep(1, nbBricks)
-}
+export const repair = (...ids) => {
+    ids.forEach((val) => {
+        let brick = document.querySelector("div#" + val);
+        if (brick) {
+            if (brick.hasAttribute("data-foundation")) {
+                brick.dataset.repaired = "in progress";
+            } else {
+                brick.dataset.repaired = true;
+            }
+        }
+    });
+};
 
-export function repair(id) {
-    const brick = document.getElementById(id)
-    console.log(brick, '  ', id)
-    let nbId = id.slice(6, id.length)
-    console.log(nbId)
-    if (nbId % 3 === 2) brick.setAttribute("repaired", "in progress")
-    else brick.setAttribute("repaired", true)
-}
-
-export function destroy() {
-    console.log(document.querySelectorAll('div'))
-    let divs = document.querySelectorAll('div')
-    let lastDiv = divs[divs.length - 1];
-    lastDiv.remove()
-}
+export const destroy = () => {
+    let bricks = document.querySelectorAll("div");
+    let arr = [];
+    for (let each of bricks) {
+        arr.push(each);
+    }
+    bricks = arr.slice(-1)[0];
+    if (bricks) {
+        bricks.remove();
+    }
+};
