@@ -1,5 +1,7 @@
-
 function pick(obj, keys) {
+    if (typeof keys === 'string') {
+        keys = [keys];
+    }
     const picked = {};
     for (const key of keys) {
         if (obj.hasOwnProperty(key)) {
@@ -8,6 +10,7 @@ function pick(obj, keys) {
     }
     return picked;
 }
+
 
 function omit(obj, keys) {
     const omitted = {};
