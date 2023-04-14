@@ -1,29 +1,29 @@
-function filterValues(obj, callback) {
-    const filtered = {};
-    for (const [key, value] of Object.entries(obj)) {
-        if (callback(value)) {
-            filtered[key] = value;
+
+function filterValues(obj, predicate) {
+    const result = {};
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key) && predicate(obj[key])) {
+            result[key] = obj[key];
         }
     }
-    return filtered;
+    return result;
 }
 
 function mapValues(obj, callback) {
-    const mapped = {};
-    for (const [key, value] of Object.entries(obj)) {
-        mapped[key] = callback(value);
+    const result = {};
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            result[key] = callback(obj[key]);
+        }
     }
-    return mapped;
+    return result;
 }
 
 function reduceValues(obj, callback, initialValue) {
-    let acc = initialValue;
-    for (const [key, value] of Object.entries(obj)) {
-        const newValue = callback(acc, value);
-        if (typeof newValue !== "undefined") {
-            acc = newValue;
-        }
+    let accumulator = initialValue !== undefined ? initialValue : obj[Object.keys(obj)[0]];
+    const startingIndex = initialValue !== undefined ? 0 : 1;
+    for (let i = startingIndex; i < Object.keys(obj).length; i++) {
+        accumulator = callback(accumulator, obj[Object.keys(obj)[i]]);
     }
-    return acc;
+    return accumulator;
 }
-
