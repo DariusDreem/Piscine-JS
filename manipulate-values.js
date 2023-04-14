@@ -1,4 +1,4 @@
-function reduce(array, func) {
+function reduceValue(array, func) {
     if (array.length < 1) {
         throw new Error("Array must have at least one element");
     }
@@ -9,7 +9,7 @@ function reduce(array, func) {
     return accumulator;
 }
 
-function filter(array, callback) {
+function filterValue(array, callback) {
     const filteredArray = [];
 
     for (let i = 0; i < array.length; i++) {
@@ -21,7 +21,7 @@ function filter(array, callback) {
     return filteredArray;
 }
 
-function map(array, callback) {
+function mapValue(array, callback) {
     const result = [];
     for (let i = 0; i < array.length; i++) {
         result.push(callback(array[i], i, array));
