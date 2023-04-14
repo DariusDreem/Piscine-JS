@@ -19,7 +19,11 @@ function mapValues(obj, callback) {
 function reduceValues(obj, callback, initialValue) {
     let acc = initialValue;
     for (const [key, value] of Object.entries(obj)) {
-        acc = callback(acc, value);
+        const newValue = callback(acc, value);
+        if (typeof newValue !== "undefined") {
+            acc = newValue;
+        }
     }
     return acc;
 }
+
