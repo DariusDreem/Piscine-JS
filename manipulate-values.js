@@ -1,30 +1,25 @@
-function reduceValue(array, func) {
-    if (array.length < 1) {
-        throw new Error("Array must have at least one element");
-    }
-    let accumulator = array[0];
-    for (let i = 1; i < array.length; i++) {
-        accumulator = func(accumulator, array[i]);
-    }
-    return accumulator;
-}
-
-function filterValue(array, callback) {
-    const filteredArray = [];
-
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            filteredArray.push(array[i]);
+function filterValues(obj, callback) {
+    const filtered = {};
+    for (const [key, value] of Object.entries(obj)) {
+        if (callback(value)) {
+            filtered[key] = value;
         }
     }
-
-    return filteredArray;
+    return filtered;
 }
 
-function mapValue(array, callback) {
-    const result = [];
-    for (let i = 0; i < array.length; i++) {
-        result.push(callback(array[i], i, array));
+function mapValues(obj, callback) {
+    const mapped = {};
+    for (const [key, value] of Object.entries(obj)) {
+        mapped[key] = callback(value);
     }
-    return result;
+    return mapped;
+}
+
+function reduceValues(obj, callback, initialValue) {
+    let acc = initialValue;
+    for (const [key, value] of Object.entries(obj)) {
+        acc = callback(acc, value);
+    }
+    return acc;
 }
