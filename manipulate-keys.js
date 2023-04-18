@@ -1,5 +1,3 @@
-const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
-
 function filterKeys(obj, filterFunc) {
     const filtered = {}
     for (const key in obj) {
@@ -23,9 +21,7 @@ function mapKeys(obj, mapFunc) {
 function reduceKeys(obj, reduceFunc, initialValue) {
     let accumulator = initialValue
     for (const key in obj) {
-        accumulator = reduceFunc(accumulator, key)
+        accumulator = reduceFunc(accumulator, obj[key])
     }
     return accumulator
 }
-
-
